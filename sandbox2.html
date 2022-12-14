@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Sandbox() {
+        var args = Array.prototype.slice.call(arguments), // 参数转成数组形式
+          callback = args.pop(), // 取出数组最后一个元素（回调函数）
+          modules = args[0] && typeof args[0] === 'string' ? args : args[0] // 判断数组剩下内容的第一个元素
+        if (!(this instanceof Sandbox)) {
+          // 如果不是沙箱实例，则实例化
+          return new Sandbox(modules, callback)
+        }
+        if (!modules || modules[0] === '*') {
+          // 判断模块参数是否存在或者第一个参数是否是*
+          modules = []
+          for (var i in Sandbox.modules) {
+            if (Sandbox.modules.hasOwnProperty(i)) {
+              modules.push(i)
+            }
+          }
+        }
+        for (var i = 0; i < modules.length; i++) {
+          // 循环模块调用
+          Sandbox.modules[modules[i]](this)
+        }
+        callback(this) // 回调
+      }
+      Sandbox.prototype = {
+        // 原型
+        name: 'sandbox',
+        version: '1.0.0',
+        getName: function () {
+          return this.name
+        },
+      }
+      // 定义模块及调用
+      Sandbox.modules = {}
+      Sandbox.modules.event = function (box) {
+        box.addEvent = function (selector, evtype, callback) {
+          selector.addEventListener(evtype, callback)
+        }
+      }
+      Sandbox(['event'], function (box) {
+        box.addEvent(document, 'click', function (e) {
+          alert(e.clientX + 'px, ' + e.clientY + 'px')
+        })
+      })
+    </script>
+  </body>
+</html>

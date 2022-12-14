@@ -1,0 +1,9 @@
+{
+  "eslint.workingDirectories": [
+    "./micro-app-common",
+    "./micro-app-main",
+    "./micro-app-react",
+    "./micro-app-vue",
+    "./micro-app-vue1"
+  ],
+}

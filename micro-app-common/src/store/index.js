@@ -1,0 +1,1 @@
+export { commonStore } from './registGlobal'
