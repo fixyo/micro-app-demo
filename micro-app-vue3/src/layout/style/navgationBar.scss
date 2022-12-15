@@ -1,0 +1,14 @@
+.navgation-bar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  background-color: var(--component-back-color);
+  width: 100%;
+  .navgation-bar-operate {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

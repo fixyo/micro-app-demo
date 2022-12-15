@@ -1,0 +1,14 @@
+.menu-item-view {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 54px;
+  svg {
+    flex-shrink: 0;
+  }
+  .menu-item-label {
+    margin-left: 10px;
+    width: calc(100% - 10px);
+    // width: 100px;
+  }
+}

@@ -1,0 +1,14 @@
+.big-screen-body {
+  position: relative;
+  height: 100px;
+  .left {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    // background-color: #333;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+}

@@ -1,0 +1,76 @@
+<template>
+  <div class="border-box">
+    <div class="border-tl"></div>
+    <div class="border-tr"></div>
+    <div class="border-bl"></div>
+    <div class="border-br"></div>
+    <div v-if="title" class="border-title">{{ title }}</div>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'border-box',
+    props: {
+      title: {
+        type: String,
+        default: ''
+      }
+    }
+  }
+</script>
+
+<style scoped lang="scss">
+  .border-box {
+    padding: 20px 30px;
+    position: relative;
+    background: rgba(10, 11, 26, 0.8);
+    .border-tl {
+      width: 31px;
+      height: 31px;
+      border: 2px solid rgba(92, 88, 221, 1);
+      border-right: 0;
+      border-bottom: 0;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+    }
+    .border-tr {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(92, 88, 221, 1);
+      opacity: 1;
+      border-left: 0;
+      border-bottom: 0;
+      position: absolute;
+      right: -1px;
+      top: -1px;
+    }
+    .border-bl {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(92, 88, 221, 1);
+      opacity: 1;
+      border-right: 0;
+      border-top: 0;
+      position: absolute;
+      left: -1px;
+      bottom: -1px;
+    }
+    .border-br {
+      width: 31px;
+      height: 31px;
+      border: 2px solid rgba(92, 88, 221, 1);
+      border-left: 0;
+      border-top: 0;
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+    }
+    .border-title {
+      font-size: 20px;
+      color: #a8adc9;
+    }
+  }
+</style>

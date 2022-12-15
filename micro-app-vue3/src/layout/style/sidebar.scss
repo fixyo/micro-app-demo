@@ -1,0 +1,24 @@
+.sidebar-container {
+  // width: 300px;
+  background-color: #283046;
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 300px;
+    min-height: 500px;
+  }
+  .el-menu {
+    border-right-width: 0;
+    .el-menu-item {
+      &.is-active {
+        background-color: var(--primary-color-3) !important;
+        color: #fff;
+      }
+    }
+    .el-sub-menu {
+      &.is-active {
+        .el-sub-menu__title {
+          background-color: var(--primary-color-3) !important;
+        }
+      }
+    }
+  }
+}
